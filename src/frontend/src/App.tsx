@@ -144,6 +144,10 @@ export default function App() {
             {lessons[activeLesson]}
           </div>
         </main>
+
+        <footer className="text-center py-3 text-xs text-white/25 border-t border-white/5">
+          Developed by Aditya .B
+        </footer>
       </div>
     </div>
   );
