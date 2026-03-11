@@ -1,4 +1,5 @@
 import { useState } from "react";
+import NoteDesigner from "./components/NoteDesigner";
 import Quiz from "./components/Quiz";
 import Sidebar from "./components/Sidebar";
 import FBDLesson from "./components/lessons/FBDLesson";
@@ -15,7 +16,8 @@ export type LessonId =
   | "third"
   | "fbd"
   | "tension"
-  | "quiz";
+  | "quiz"
+  | "note_designer";
 
 export interface Progress {
   completedLessons: Set<LessonId>;
@@ -49,6 +51,7 @@ export default function App() {
         onComplete={(score) => setProgress((p) => ({ ...p, quizScore: score }))}
       />
     ),
+    note_designer: <NoteDesigner />,
   };
 
   const totalLessons = 5;

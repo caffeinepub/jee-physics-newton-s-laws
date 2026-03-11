@@ -29,6 +29,12 @@ const lessons: {
     subtitle: "Ropes & Pulleys",
   },
   {
+    id: "note_designer",
+    icon: "✨",
+    title: "Note Designer",
+    subtitle: "Smart Notes Generator",
+  },
+  {
     id: "quiz",
     icon: "🏆",
     title: "Practice Quiz",
@@ -70,6 +76,10 @@ export default function Sidebar({
               activeLesson === lesson.id
                 ? "bg-cyan-500/15 border border-cyan-500/30 text-white"
                 : "hover:bg-white/5 text-white/60 hover:text-white"
+            } ${
+              lesson.id === "note_designer"
+                ? `border border-violet-500/20 bg-violet-500/5 hover:bg-violet-500/10 hover:border-violet-500/30${activeLesson === lesson.id ? " !bg-cyan-500/15 !border-cyan-500/30" : ""}`
+                : ""
             }`}
           >
             <span className="text-lg leading-none">{lesson.icon}</span>
@@ -83,7 +93,8 @@ export default function Sidebar({
               <span className="text-xs font-bold text-amber-400">
                 {quizScore}%
               </span>
-            ) : completedLessons.has(lesson.id) ? (
+            ) : lesson.id !== "note_designer" &&
+              completedLessons.has(lesson.id) ? (
               <span className="text-green-400 text-sm">✓</span>
             ) : null}
           </button>
